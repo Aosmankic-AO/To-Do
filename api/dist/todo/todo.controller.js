@@ -34,7 +34,7 @@ let TodoController = class TodoController {
             const todo = await this.todoService.findOne(id);
             console.log('Grabbed item: ' + todo.title);
             console.log('ID:' + todo.id);
-            return this.todoService.findOne(id);
+            return todo;
         }
         catch (error) {
             if (error.name === 'CastError') {

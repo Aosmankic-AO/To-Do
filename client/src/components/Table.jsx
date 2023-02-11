@@ -3,23 +3,27 @@ import './components.css'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faTrash} from '@fortawesome/free-solid-svg-icons'
 
+export const fetchData = async() => {
+  const response = await fetch('http://localhost:3001/todos/');
+  const data = await  response.json();
+  return data;
+}
 
 const Table = ({ data }) => {
   //Table data, list of items
   const [topTableData, setTopTableData] = useState([]);
   const [bottomTableData, setBottomTableData] = useState([]);
-  
 
+  // Data from MongoDB
   useEffect(() => {
     // load data here and set it using setData
-    async function fetchData() {
-      const response = await fetch('http://localhost:3001/todos/');
-      const data = await response.json();
+    async function loadData() {
+      const data = await fetchData();
+      console.log('Fetching Data...');
       setTopTableData(data);
     }
-
-    fetchData();
-  }, []);
+    loadData();
+  },[]);
 
 
   // Handling the delete button
@@ -69,7 +73,7 @@ const Table = ({ data }) => {
     <tbody>
       {topTableData.map((row, index) => (
         <tr key={row._id}>
-        <td><button onClick={() => handleDelete(index)}><FontAwesomeIcon icon={faTrash} /></button></td>
+        <td><button className='delete-btn' onClick={() => handleDelete(index)}><FontAwesomeIcon icon={faTrash} /></button></td>
         <td>{row.title}</td>
         <td>{row.description}</td>
         <td><input

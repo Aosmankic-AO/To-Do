@@ -1,20 +1,29 @@
 table {
   width: 100%;
   border-collapse: collapse;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 th, td {
-  border: 1px solid #dddddd;
+
   text-align: left;
-  padding: 8px;
-  text-align: center;
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
 }
 
 th {
-  background-color: #f06363;
+  background-color: #ae95da;
+  font-weight: bold;
 }
 
-button {
+tr:hover {
+  background-color: #f2f2f2;
+}
+
+.delete-btn {
+  color: #ec4747;
   background: transparent;
   border: none;
   outline: none;

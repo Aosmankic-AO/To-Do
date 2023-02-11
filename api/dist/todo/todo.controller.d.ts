@@ -23,8 +23,8 @@
 /// <reference types="mongoose/types/virtuals" />
 /// <reference types="mongoose" />
 /// <reference types="mongoose/types/inferschematype" />
-import { Todo } from "./todo.interface";
-import { TodoService } from "./todo.service";
+import { Todo } from './todo.interface';
+import { TodoService } from './todo.service';
 export declare class TodoController {
     private readonly todoService;
     constructor(todoService: TodoService);
